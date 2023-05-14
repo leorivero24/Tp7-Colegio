@@ -24,6 +24,8 @@ public class Alumno {
         this.nombre = nombre;
     }
 
+   
+
     public int getLegajo() {
         return legajo;
     }
@@ -48,14 +50,9 @@ public class Alumno {
         this.nombre = nombre;
     }
 
-    public void agregarMateria(Materia materia) {
-
-      if(materias.add(materia)){
-          JOptionPane.showMessageDialog(null, "El alumno se inscribio correctamente!!");
-      }else{
-          JOptionPane.showMessageDialog(null, "Esa materia ya fue inscripta anteriormente!!");
-      }
-
+    public boolean agregarMateria(Materia materia) {
+      boolean resultado = materias.add(materia);
+      return resultado; 
     }
 
     public int cantidadMaterias() {

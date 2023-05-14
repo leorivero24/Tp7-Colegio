@@ -64,8 +64,14 @@ public class VistaInscripcion extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Elija un alumno:");
 
+        jcMateria.setBackground(new java.awt.Color(0, 102, 255));
+
+        jcAlumno.setBackground(new java.awt.Color(0, 102, 255));
+
         jLabel3.setText("Formulario Inscripcion");
 
+        jButton1.setBackground(new java.awt.Color(102, 102, 102));
+        jButton1.setFont(new java.awt.Font("Dubai", 1, 18)); // NOI18N
         jButton1.setText("Inscribir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,6 +79,8 @@ public class VistaInscripcion extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(102, 102, 102));
+        jButton2.setFont(new java.awt.Font("Dubai", 1, 18)); // NOI18N
         jButton2.setText("Salir");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,7 +112,7 @@ public class VistaInscripcion extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(119, 119, 119)
                         .addComponent(jLabel3)))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,7 +127,7 @@ public class VistaInscripcion extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jcAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
@@ -136,9 +144,13 @@ public class VistaInscripcion extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Alumno seleca = (Alumno) jcAlumno.getSelectedItem();
         Materia selecm = (Materia) jcMateria.getSelectedItem();
+        
+        if (seleca.agregarMateria(selecm)) {
+            JOptionPane.showMessageDialog(this, " Felicidades! " + seleca.getApellido() + " " + seleca.getNombre() + ", Te inscribiste en " + seleca.cantidadMaterias() + " Materia/s");
+        }else{
+            JOptionPane.showMessageDialog(null, "Esa materia ya fue inscripta anteriormente!!");
+        }
 
-        seleca.agregarMateria(selecm);
-        JOptionPane.showMessageDialog(null," Felicidades! " + seleca.getApellido()+" "+seleca.getNombre()+ ", Te inscribiste en " + seleca.cantidadMaterias() + " Materia/s");
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

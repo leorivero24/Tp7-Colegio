@@ -1,6 +1,6 @@
 
-import java.awt.HeadlessException;
 import java.util.HashSet;
+import java.util.Iterator;
 import javax.swing.JOptionPane;
 
 /*
@@ -27,8 +27,6 @@ public class VistaMaterias extends javax.swing.JInternalFrame {
 
     }
 
-
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,12 +39,12 @@ public class VistaMaterias extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jtIdMateria = new javax.swing.JTextField();
         jtNombreMateria = new javax.swing.JTextField();
         jtAnioMateria = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jtIdMateria = new javax.swing.JTextField();
 
         jLabel1.setText("Codigo de materia:");
 
@@ -54,12 +52,17 @@ public class VistaMaterias extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Año al que pertenece:");
 
+        jtNombreMateria.setBackground(new java.awt.Color(0, 153, 255));
+
+        jtAnioMateria.setBackground(new java.awt.Color(0, 153, 255));
         jtAnioMateria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtAnioMateriaActionPerformed(evt);
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(102, 102, 102));
+        jButton1.setFont(new java.awt.Font("Dubai", 1, 18)); // NOI18N
         jButton1.setText("Guardar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,8 +70,17 @@ public class VistaMaterias extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(102, 102, 102));
+        jButton2.setFont(new java.awt.Font("Dubai", 1, 18)); // NOI18N
         jButton2.setText("Nuevo");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
+        jButton3.setBackground(new java.awt.Color(102, 102, 102));
+        jButton3.setFont(new java.awt.Font("Dubai", 1, 18)); // NOI18N
         jButton3.setText("Salir");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,35 +88,38 @@ public class VistaMaterias extends javax.swing.JInternalFrame {
             }
         });
 
+        jtIdMateria.setBackground(new java.awt.Color(0, 153, 255));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(jtAnioMateria))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jtNombreMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jtIdMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(101, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtIdMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtNombreMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtAnioMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(143, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton3)
-                .addGap(23, 23, 23))
+                .addGap(24, 24, 24))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,12 +136,12 @@ public class VistaMaterias extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jtAnioMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
-                .addGap(22, 22, 22))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         pack();
@@ -141,31 +156,67 @@ public class VistaMaterias extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
         String nombre = jtNombreMateria.getText();
         int idMateria = 0;
         int anio = 0;
-        try {
-            idMateria = Integer.parseInt(jtIdMateria.getText());
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "El id ingresado de la materia es incorrecto, por favor ingrese un id valido");
+        if (!validarIdAnio(jtIdMateria.getText().trim())) {
+            JOptionPane.showMessageDialog(this, "Dato incorrecto[Ingrese dato valido]..., INTENTE NUEVAMENTE...");
             jtIdMateria.requestFocus();
-        }
-        
-
-        try {
-            anio = Integer.parseInt(jtAnioMateria.getText());
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "El anio ingresado de la materia es incorrecto, por favor ingrese un anio valido");
+            jtIdMateria.setText("");
+        } else if (jtIdMateria.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "CAMPO ID >> VACIO!!");
+        } else if (!validarNombreMateria(jtNombreMateria.getText().trim())) {
+            JOptionPane.showMessageDialog(this, "Dato incorrecto...[Ingrese dato valido], INTENTE NUEVAMENTE...");
+            jtNombreMateria.requestFocus();
+            jtNombreMateria.setText("");
+        } else if (jtNombreMateria.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "CAMPO MATERIA >> VACIO!!");
+        } else if (!validarIdAnio(jtAnioMateria.getText())) {
+            JOptionPane.showMessageDialog(this, "Dato incorrecto...[Ingrese un año valido], INTENTE NUEVAMENTE...");
             jtAnioMateria.requestFocus();
+            jtAnioMateria.setText("");
+        } else if (jtAnioMateria.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "CAMPO AÑO >> VACIO!!");
+        } else {
+            try {
+                idMateria = Integer.parseInt(jtIdMateria.getText());
+
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "El id ingresado de la materia es incorrecto, por favor ingrese un id valido");
+                jtIdMateria.requestFocus();
+
+            }
+            try {
+                anio = Integer.parseInt(jtAnioMateria.getText());
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "El anio ingresado de la materia es incorrecto, por favor ingrese un anio valido");
+                jtAnioMateria.requestFocus();
+            }
+            Materia m1 = new Materia(idMateria, nombre, anio);
+            boolean resultado = materias.add(m1);
+            if (resultado) {
+                JOptionPane.showMessageDialog(this, "Materia Registrada!!");
+                limpiarMaterias();
+            } else {
+                JOptionPane.showMessageDialog(this, "Materia No Registrada..");
+            }
         }
-        Materia m1 = new Materia(idMateria, nombre, anio);
-        materias.add(m1);
-   //     JOptionPane.showMessageDialog(this, "Materia Registrada!!");
-        limpiarMaterias();
-    
-        
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
-    
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        limpiarMaterias();
+    }//GEN-LAST:event_jButton2ActionPerformed
+    public static boolean validarIdAnio(String idAnio) {
+        return idAnio.matches("[0-9]*");
+    }
+
+    public static boolean validarNombreMateria(String nombreMateria) {
+        return nombreMateria.matches("[a-z A-Z]*");
+    }
+   
     public void limpiarMaterias() {
         jtAnioMateria.setText("");
         jtIdMateria.setText("");

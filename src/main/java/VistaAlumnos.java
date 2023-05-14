@@ -23,7 +23,7 @@ public class VistaAlumnos extends javax.swing.JInternalFrame {
     }
 
     public VistaAlumnos() {
-       
+
     }
 
     /**
@@ -45,12 +45,23 @@ public class VistaAlumnos extends javax.swing.JInternalFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
+        setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
         jLabel1.setText("Legajo:");
 
         jLabel2.setText("Apellido:");
 
         jLabel3.setText("Nombre:");
 
+        jtLegajo.setBackground(new java.awt.Color(0, 153, 255));
+
+        jtApellido.setBackground(new java.awt.Color(0, 153, 255));
+
+        jtNombre.setBackground(new java.awt.Color(0, 153, 255));
+
+        jButton1.setBackground(new java.awt.Color(102, 102, 102));
+        jButton1.setFont(new java.awt.Font("Dubai", 1, 18)); // NOI18N
+        jButton1.setIcon(jButton1.getIcon());
         jButton1.setText("Guardar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,6 +69,8 @@ public class VistaAlumnos extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(102, 102, 102));
+        jButton2.setFont(new java.awt.Font("Dubai", 1, 18)); // NOI18N
         jButton2.setText("Nuevo");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,6 +78,8 @@ public class VistaAlumnos extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton3.setBackground(new java.awt.Color(102, 102, 102));
+        jButton3.setFont(new java.awt.Font("Dubai", 1, 18)); // NOI18N
         jButton3.setText("Salir");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,7 +115,7 @@ public class VistaAlumnos extends javax.swing.JInternalFrame {
                         .addComponent(jButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton3)))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,7 +132,7 @@ public class VistaAlumnos extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
@@ -132,26 +147,46 @@ public class VistaAlumnos extends javax.swing.JInternalFrame {
         String nombre = jtNombre.getText();
         String apellido = jtApellido.getText();
         int legajo = 0;
-
-        try {
-            legajo = Integer.parseInt(jtLegajo.getText());
-            Alumno a1 = new Alumno(legajo, apellido, nombre);
-            alumnos.add(a1);
-            JOptionPane.showMessageDialog(this, "Alumno agregado!");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "dato ingresado es incorrecto, ingrese un nuevo dato");
+        if(jtLegajo.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "CAMPO LEGAJO >> VACIO!!");
             jtLegajo.requestFocus();
+        }else if (!validarNomAp(jtApellido.getText().trim())) {
+            JOptionPane.showMessageDialog(this, "El Apellido ingresado del alumno es incorrecto, por favor ingrese un apellido valido...");
+            jtApellido.requestFocus();
+            jtApellido.setText("");
+        } else if (jtApellido.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "CAMPO APELLIDO >> VACIO!!");
+            jtApellido.requestFocus();
+        } else if (!validarNomAp(jtNombre.getText())) {
+            JOptionPane.showMessageDialog(this, "El Nombre ingresado del alumno es incorrecto, por favor ingrese un nombre valido...");
+            jtNombre.requestFocus();
+            jtNombre.setText("");
+        } else if (jtNombre.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "CAMPO NOMBRE >> VACIO!!");
+            jtNombre.requestFocus();
+        } else {
+            try {
+                legajo = Integer.parseInt(jtLegajo.getText());
+                Alumno a1 = new Alumno(legajo, apellido, nombre);
+                alumnos.add(a1);
+                JOptionPane.showMessageDialog(this, "Alumno agregado!");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "EL legajo ingresado es incorrecto, ingrese un nuevo dato");
+                jtLegajo.requestFocus();
+            }
+             limpiarAlumnos();
         }
-        limpiarAlumnos();
-
+       
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    public static boolean validarNomAp(String nomAp) {
+        return nomAp.matches("[a-z A-Z]*");
+    }
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         dispose();// TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    limpiarAlumnos();        // TODO add your handling code here:
+        limpiarAlumnos();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
     public void limpiarAlumnos() {
         jtNombre.setText("");
