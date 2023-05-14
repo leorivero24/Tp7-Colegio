@@ -44,6 +44,7 @@ public class VistaAlumnos extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -87,6 +88,11 @@ public class VistaAlumnos extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel4.setBackground(new java.awt.Color(0, 204, 204));
+        jLabel4.setFont(new java.awt.Font("Dubai", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel4.setText("FORMULARIO ALUMNO");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -95,19 +101,22 @@ public class VistaAlumnos extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(48, 48, 48)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jtNombre))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jtApellido))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jtLegajo, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(jtLegajo, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(7, 7, 7)
+                                .addComponent(jLabel4))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(133, 133, 133)
                         .addComponent(jButton1)
@@ -115,29 +124,31 @@ public class VistaAlumnos extends javax.swing.JInternalFrame {
                         .addComponent(jButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton3)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4)
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jtLegajo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
-                .addGap(40, 40, 40))
+                .addGap(82, 82, 82))
         );
 
         pack();
@@ -148,30 +159,30 @@ public class VistaAlumnos extends javax.swing.JInternalFrame {
         String apellido = jtApellido.getText();
         int legajo = 0;
         if(jtLegajo.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "CAMPO LEGAJO >> VACIO!!");
+            JOptionPane.showMessageDialog(this, "CAMPO LEGAJO >> VACIO!!","Advertencia!",JOptionPane.WARNING_MESSAGE);
             jtLegajo.requestFocus();
         }else if (!validarNomAp(jtApellido.getText().trim())) {
-            JOptionPane.showMessageDialog(this, "El Apellido ingresado del alumno es incorrecto, por favor ingrese un apellido valido...");
+            JOptionPane.showMessageDialog(this, "Dato Apellido incorrecto >> Intente nuevamente...","Error!",JOptionPane.ERROR_MESSAGE);
             jtApellido.requestFocus();
             jtApellido.setText("");
         } else if (jtApellido.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "CAMPO APELLIDO >> VACIO!!");
+            JOptionPane.showMessageDialog(this, "CAMPO APELLIDO >> VACIO!!","Advertencia!",JOptionPane.WARNING_MESSAGE);
             jtApellido.requestFocus();
         } else if (!validarNomAp(jtNombre.getText())) {
-            JOptionPane.showMessageDialog(this, "El Nombre ingresado del alumno es incorrecto, por favor ingrese un nombre valido...");
+            JOptionPane.showMessageDialog(this, "Dato Nombre incorrecto >> Intente nuevamente...","Error!",JOptionPane.ERROR_MESSAGE);
             jtNombre.requestFocus();
             jtNombre.setText("");
         } else if (jtNombre.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "CAMPO NOMBRE >> VACIO!!");
+            JOptionPane.showMessageDialog(this, "CAMPO NOMBRE >> VACIO!!","Advertencia!",JOptionPane.WARNING_MESSAGE);
             jtNombre.requestFocus();
         } else {
             try {
                 legajo = Integer.parseInt(jtLegajo.getText());
                 Alumno a1 = new Alumno(legajo, apellido, nombre);
                 alumnos.add(a1);
-                JOptionPane.showMessageDialog(this, "Alumno agregado!");
+                JOptionPane.showMessageDialog(this, "Alumno agregado!","Informacion",JOptionPane.INFORMATION_MESSAGE);
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(this, "EL legajo ingresado es incorrecto, ingrese un nuevo dato");
+                JOptionPane.showMessageDialog(this, "Dato Legajo incorrecto >> Intente nuevamente...","Error!",JOptionPane.ERROR_MESSAGE);
                 jtLegajo.requestFocus();
             }
              limpiarAlumnos();
@@ -202,6 +213,7 @@ public class VistaAlumnos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField jtApellido;
     private javax.swing.JTextField jtLegajo;
     private javax.swing.JTextField jtNombre;

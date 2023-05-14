@@ -45,6 +45,7 @@ public class VistaMaterias extends javax.swing.JInternalFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jtIdMateria = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
 
         jLabel1.setText("Codigo de materia:");
 
@@ -90,58 +91,68 @@ public class VistaMaterias extends javax.swing.JInternalFrame {
 
         jtIdMateria.setBackground(new java.awt.Color(0, 153, 255));
 
+        jLabel4.setBackground(new java.awt.Color(0, 204, 204));
+        jLabel4.setFont(new java.awt.Font("Dubai", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel4.setText("FORMULARIO MATERIA");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtIdMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtNombreMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtAnioMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(143, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 112, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton3)
-                .addGap(24, 24, 24))
+                .addGap(70, 70, 70))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(41, 41, 41)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(51, 51, 51)
+                                .addComponent(jLabel1)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jtAnioMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtNombreMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtIdMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(101, 101, 101)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addGap(28, 28, 28)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jtIdMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jtNombreMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jtAnioMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
@@ -161,23 +172,23 @@ public class VistaMaterias extends javax.swing.JInternalFrame {
         int idMateria = 0;
         int anio = 0;
         if (!validarIdAnio(jtIdMateria.getText().trim())) {
-            JOptionPane.showMessageDialog(this, "Dato incorrecto[Ingrese dato valido]..., INTENTE NUEVAMENTE...");
+            JOptionPane.showMessageDialog(this, "Dato Id incorrecto >> Intente nuevamente...","Error!",JOptionPane.ERROR_MESSAGE);
             jtIdMateria.requestFocus();
             jtIdMateria.setText("");
         } else if (jtIdMateria.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "CAMPO ID >> VACIO!!");
+            JOptionPane.showMessageDialog(this, "CAMPO ID >> VACIO!!","Advertencia!",JOptionPane.WARNING_MESSAGE);
         } else if (!validarNombreMateria(jtNombreMateria.getText().trim())) {
-            JOptionPane.showMessageDialog(this, "Dato incorrecto...[Ingrese dato valido], INTENTE NUEVAMENTE...");
+            JOptionPane.showMessageDialog(this, "Dato Materia incorrecto >> Intente nuevamente...","Error!",JOptionPane.ERROR_MESSAGE);
             jtNombreMateria.requestFocus();
             jtNombreMateria.setText("");
         } else if (jtNombreMateria.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "CAMPO MATERIA >> VACIO!!");
+            JOptionPane.showMessageDialog(this, "CAMPO MATERIA >> VACIO!!","Advertencia!",JOptionPane.WARNING_MESSAGE);
         } else if (!validarIdAnio(jtAnioMateria.getText())) {
-            JOptionPane.showMessageDialog(this, "Dato incorrecto...[Ingrese un año valido], INTENTE NUEVAMENTE...");
+            JOptionPane.showMessageDialog(this, "Dato Año incorrecto >> Intente nuevamente...","Error!",JOptionPane.ERROR_MESSAGE);
             jtAnioMateria.requestFocus();
             jtAnioMateria.setText("");
         } else if (jtAnioMateria.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "CAMPO AÑO >> VACIO!!");
+            JOptionPane.showMessageDialog(this, "CAMPO AÑO >> VACIO!!","Advertencia!",JOptionPane.WARNING_MESSAGE);
         } else {
             try {
                 idMateria = Integer.parseInt(jtIdMateria.getText());
@@ -196,10 +207,10 @@ public class VistaMaterias extends javax.swing.JInternalFrame {
             Materia m1 = new Materia(idMateria, nombre, anio);
             boolean resultado = materias.add(m1);
             if (resultado) {
-                JOptionPane.showMessageDialog(this, "Materia Registrada!!");
+                JOptionPane.showMessageDialog(this, "Materia Registrada!!","Informacion",JOptionPane.INFORMATION_MESSAGE);
                 limpiarMaterias();
             } else {
-                JOptionPane.showMessageDialog(this, "Materia No Registrada..");
+                JOptionPane.showMessageDialog(this, "Materia No Registrada..","Informacion",JOptionPane.INFORMATION_MESSAGE);
             }
         }
 
@@ -230,6 +241,7 @@ public class VistaMaterias extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField jtAnioMateria;
     private javax.swing.JTextField jtIdMateria;
     private javax.swing.JTextField jtNombreMateria;
